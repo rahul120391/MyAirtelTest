@@ -1,0 +1,76 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolVersion
+
+    defaultConfig {
+        applicationId "com.example.airteltest"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    androidExtensions {
+        experimental = true
+    }
+
+    dataBinding {
+        enabled = true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation  supportDependencies.appCompat
+    implementation  supportDependencies.coreLib
+    implementation  supportDependencies.supportAnnotation
+    implementation  supportDependencies.constraintLayoutLib
+    implementation  supportDependencies.kotlinLib
+    implementation  supportDependencies.mockito
+    implementation  supportDependencies.junit
+    implementation  supportDependencies.powerMock
+    implementation  supportDependencies.powerMockJunit
+    implementation  supportDependencies.powerMockMockito
+    testImplementation supportDependencies.coreTestingLib
+    testImplementation supportDependencies.roboElectricLib
+    implementation  supportDependencies.designSupportLib
+    implementation  supportDependencies.recyclerViewLib
+    implementation  supportDependencies.lifeCycleLib
+    kapt  supportDependencies.lifeCycleCompilerLib
+    implementation supportDependencies.roomDatabaseRuntime
+    kapt supportDependencies.roomDatabaseCompiler
+    testImplementation supportDependencies.roomDatabaseTestHelper
+
+    implementation  thirdPartyLibraries.rxAndroidLib
+    implementation  thirdPartyLibraries.rxKotlinLib
+    implementation  thirdPartyLibraries.gsonLib
+    implementation  thirdPartyLibraries.okHttpLib
+    implementation  thirdPartyLibraries.okHttpLogging
+    implementation  thirdPartyLibraries.retrofitLib
+    implementation  thirdPartyLibraries.gsonConverter
+    implementation  thirdPartyLibraries.rxAdapter
+    implementation  thirdPartyLibraries.daggerLib
+    kapt  thirdPartyLibraries.daggerCompilerLib
+    implementation  thirdPartyLibraries.daggerAndroidLib
+    implementation  thirdPartyLibraries.daggerAndroidSupport
+    kapt  thirdPartyLibraries.daggerAndroidProcessor
+}

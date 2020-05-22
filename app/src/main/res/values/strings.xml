@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Airtel Test</string>
+    <string name="search">Search</string>
+    <string name="searchByAddress">Search By Address</string>
+
+    <string name="errorWhileFetchingData">Error While Fetching Data</string>
+    <string name="noResultFound">No Result Found</string>
+    <string name="noInternetAvailable">No Internet Available</string>
+</resources>
